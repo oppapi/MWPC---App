@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Register button logic
         if (btnRegister != null) {
             btnRegister.setOnClickListener(v -> {
                 String name = etName.getText() != null ? etName.getText().toString().trim() : "";
@@ -138,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         db.collection("users").document(userId)
                 .set(user)
                 .addOnSuccessListener(aVoid -> {
-                    mAuth.signOut(); // Sign out until verified
+                    mAuth.signOut(); 
                     startActivity(new Intent(MainActivity.this, Login.class));
                     finish();
                 })
